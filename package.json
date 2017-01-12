@@ -1,0 +1,43 @@
+{
+  "name": "ionic-select-search",
+  "version": "0.0.1",
+  "description": "Skinnable select control with search for Ionic framework",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maheshwarishivam/ionic-select-search.git"
+  },
+  "keywords": [
+    "ionic-select-control",
+    "ionic-select-search",
+    "ionic",
+    "ionic select",
+    "ionic select search",
+    "select control for ionic",
+    "select control for ionic with search",
+    "select for ionic with search"
+  ],
+  "author": {
+    "name": "Shivam Maheshwari",
+    "url": "http://shivammaheshwari.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maheshwarishivam/ionic-select-search/issues"
+  },
+  "homepage": "https://github.com/maheshwarishivam/ionic-select-search#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "main-bower-files": "^2.11.1"
+  }
+}

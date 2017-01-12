@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>A select box using angular-translate</title>
+    <link href="../lib/ionic-bundle/css/ionic.min.css" rel="stylesheet">
+    <link href="../src/select-search.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="../lib/ionic-bundle/ionic.bundle.min.js"></script>
+    <script src="../lib/angular-translate/angular-translate.min.js"></script>
+
+    <script src="../src/select-search.js"></script>
+
+</head>
+<body ng-controller="MyCtrl">
+<input type="button" ng-click="setLocale('fr-FR')" value="French">&nbsp;<input type="button"
+                                                                               ng-click="setLocale('en-US')"
+                                                                               value="English">
+<br>
+<p>{{model.selectedlang}}</p>
+<br>
+<select-search-box ng-model="model"
+                   selected-value="selectedValue"
+                   item-name="label"
+                   item-id="key"
+                   select-title="{{model.title}}"
+                   source="list"
+                   placeholder-text="{{model.placeholder}}"
+                   header-class="bar-calm"
+                   select-changed="onSelectChanged()"
+></select-search-box>
+
+<script>
+    angular.module('ionicApp', ['ionic', '$selectSearchBox', 'pascalprecht.translate'])
+        .config(['$translateProvider', function ($translateProvider) {
+            $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
+
+            $translateProvider.translations('en-US', {
+                HELLO: 'Hello',
+                TITLE: 'Modal select box',
+                PLACEHOLDER: 'Your choice...',
+                YOU_SELECTED: 'You selected label: '
+
+            });
+
+            $translateProvider.translations('fr-FR', {
+                HELLO: 'Bonjour',
+                TITLE: 'Sélection modale ',
+                PLACEHOLDER: 'Votre choix...',
+                YOU_SELECTED: 'Vous avez choisi le libellé : '
+            });
+
+            $translateProvider.preferredLanguage("fr-FR");
+            $translateProvider.fallbackLanguage("en-US");
+        }])
+        .controller('MyCtrl', ['$scope', '$translate', function ($scope, $translate) {
+            $scope.list = [
+                {key: "Test", label: "Test Label"},
+                {key: "Test2", label: "Test Label 2"}
+            ];
+
+            $scope.list2 = [
+                {key: "TestA", label: "Test Label A"},
+                {key: "TestB", label: "Test Label B"}
+            ];
+            $scope.model = {};
+            $scope.model.title = $translate.instant('TITLE');
+            $scope.model.placeholder = $translate.instant('PLACEHOLDER');
+
+            $scope.onSelectChanged = function () {
+                console.log($translate.instant('YOU_SELECTED') + $scope.selectedValue);
+            };
+            $scope.setLocale = function (locale) {
+                $scope.model.selectedlang = locale;
+                $translate.use(locale);
+                $scope.model.title = $translate.instant('TITLE');
+                $scope.model.placeholder = $translate.instant('PLACEHOLDER');
+
+            };
+        }]);
+</script>
+</body>
+</html>

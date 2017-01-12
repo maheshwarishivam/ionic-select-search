@@ -1,0 +1,32 @@
+{
+  "name": "ionic-select-search",
+  "version": "0.0.1",
+  "description": "Skinnable select control with search for Ionic framework",
+  "main": [
+    "./src/select-search-box.js",
+    "./src/select-search-box.css"
+  ],
+  "author": {
+    "name": "Shivam Maheshwari",
+    "url": "http://shivammaheshwari.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ionic-select-control",
+    "ionic-select-search",
+    "ionic",
+    "ionic select",
+    "ionic select search",
+    "select control for ionic",
+    "select control for ionic with search",
+    "select for ionic with search"
+  ],
+  "homepage": "https://github.com/maheshwarishivam/ionic-select-search#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
